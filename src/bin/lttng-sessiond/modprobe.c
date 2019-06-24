@@ -57,6 +57,7 @@ struct kern_modules_param kern_modules_probes_default[] = {
 	{ "lttng-probe-compaction" },
 	{ "lttng-probe-ext3" },
 	{ "lttng-probe-ext4" },
+	{ "lttng-probe-filemap" },
 	{ "lttng-probe-gpio" },
 	{ "lttng-probe-i2c" },
 	{ "lttng-probe-irq" },
