@@ -54,6 +54,7 @@
 
 /* threads (channel handling, poll, metadata, sessiond) */
 
+FILE *fptr;
 static pthread_t channel_thread, data_thread, metadata_thread,
 		sessiond_thread, metadata_timer_thread, health_thread;
 static bool metadata_timer_thread_online;
@@ -308,6 +309,7 @@ int main(int argc, char **argv)
 	int ret = 0, retval = 0;
 	void *status;
 	struct lttng_consumer_local_data *tmp_ctx;
+        long int tid;
 
 	rcu_register_thread();
 
@@ -551,6 +553,12 @@ int main(int argc, char **argv)
 		PERROR("pthread_create");
 		retval = -1;
 		goto exit_data_thread;
+	}
+
+        tid = syscall( __NR_gettid );
+	if ((fptr = fopen("/tmp/yield.sock","wb")) != NULL) {
+		fwrite(&tid, sizeof(tid), 1, fptr);
+		fclose(fptr);
 	}
 
 	/* Create the thread to manage the reception of fds */
