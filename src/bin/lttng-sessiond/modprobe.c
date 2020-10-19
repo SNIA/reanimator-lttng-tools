@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2011 - David Goulet <dgoulet@efficios.com>
  *               2014 - Jan Glauber <jan.glauber@gmail.com>
+ * 				 2019 - Ibrahim Umit Akgun
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 only,
